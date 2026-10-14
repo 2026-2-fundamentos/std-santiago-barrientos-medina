@@ -2,7 +2,7 @@ import runpy
 from pathlib import Path
 
 ACTIVITY_DIR = Path(__file__).resolve().parents[1]
-IS_PROFESSOR = any((path / ".PROFESSOR").exists() for path in ACTIVITY_DIR.parents)
+IS_PROFESSOR = (ACTIVITY_DIR / ".PROFESSOR").exists() or any((path / ".PROFESSOR").exists() for path in ACTIVITY_DIR.parents)
 CODE_DIR = ACTIVITY_DIR / ("professor" if IS_PROFESSOR else "src")
 SUBMISSION_FOLDER = "submission"
 
